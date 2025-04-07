@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import ClassCom from "./ClassCom";
+import FuncCom from "./FuncCom";
 
 {
     /* 
@@ -12,8 +13,13 @@ import ClassCom from "./ClassCom";
 
 function App() {
     return (
-        <div className="container">
-            <ClassCom></ClassCom>
+        <div>
+            <div className="container">
+                <ClassCom></ClassCom>
+            </div>
+            <div className="container">
+                <FuncCom></FuncCom>
+            </div>
         </div>
     );
 }
