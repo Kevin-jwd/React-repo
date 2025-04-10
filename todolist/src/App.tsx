@@ -2,6 +2,8 @@ import React from "react";
 import "./App.css";
 import ClassCom from "./ClassCom";
 import FuncCom from "./FuncCom";
+import TodoList from "./Todolist";
+import Clock from "./Clock";
 
 {
     /* 
@@ -15,10 +17,8 @@ function App() {
     return (
         <div>
             <div className="container">
-                <ClassCom></ClassCom>
-            </div>
-            <div className="container">
-                <FuncCom></FuncCom>
+                <TodoList></TodoList>
+                <Clock></Clock>
             </div>
         </div>
     );
