@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { isCallChain } from "typescript";
+import { Button } from "react-bootstrap";
+import Form from "react-bootstrap/Form";
 
 type Todo = {
     id: number;
@@ -17,6 +18,8 @@ const TodoList: React.FC = () => {
         { id: 4, text: "밥먹기", isChecked: false },
     ]);
 
+    const [newTodo, setNewTodo] = useState<string>("");
+
     const handleCheckedChange = (itemId: number) => {
         setTodos((prevItems) =>
             prevItems.map((item) =>
@@ -27,10 +30,39 @@ const TodoList: React.FC = () => {
         );
     };
 
+    const addTodo = () => {
+        if (newTodo.trim() !== "") {
+            setTodos([
+                ...todos,
+                { id: Date.now(), text: newTodo, isChecked: false },
+            ]);
+            setNewTodo('');
+        }
+    };
+
     return (
         <div>
             <h1>{title}</h1>
+            <p></p>
             <div className="container">
+                <div className="input-row">
+                    <Form.Control
+                        type="text"
+                        placeholder="할 일 입력"
+                        size="lg"
+                        onChange={(e) => setNewTodo(e.target.value)}
+                    />
+                    <Button
+                        variant="primary"
+                        style={{
+                            whiteSpace: "nowrap",
+                        }}
+                        onClick={addTodo}
+                    >
+                        추가
+                    </Button>
+                </div>
+                <p></p>
                 <div className="board">
                     <ul>
                         {todos.map((todo, index) => (
