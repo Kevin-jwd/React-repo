@@ -1,3 +1,10 @@
+.input-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
 .board {
   background-color: aliceblue;
   border-radius: 8px;
