@@ -1,5 +1,7 @@
+import { findAllByTestId } from "@testing-library/dom";
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
+import { useIsRTL } from "react-bootstrap/esm/ThemeProvider";
 import Form from "react-bootstrap/Form";
 
 type Todo = {
@@ -36,8 +38,12 @@ const TodoList: React.FC = () => {
                 ...todos,
                 { id: Date.now(), text: newTodo, isChecked: false },
             ]);
-            setNewTodo('');
+            setNewTodo("");
         }
+    };
+
+    const removeTodo = (id: number) => {
+        setTodos(todos.filter((todo) => todo.id !== id));
     };
 
     return (
@@ -80,6 +86,14 @@ const TodoList: React.FC = () => {
                                         <span>{todo.text}</span>
                                     )}
                                 </span>
+                                <button
+                                    className="del-button"
+                                    onClick={() => {
+                                        removeTodo(todo.id);
+                                    }}
+                                >
+                                    삭제
+                                </button>
                             </li>
                         ))}
                     </ul>
