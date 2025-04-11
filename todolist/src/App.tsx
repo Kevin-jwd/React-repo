@@ -4,6 +4,7 @@ import ClassCom from "./ClassCom";
 import FuncCom from "./FuncCom";
 import TodoList from "./Todolist";
 import Clock from "./Clock";
+import MyWeather from "./MyWeather";
 
 {
     /* 
@@ -19,6 +20,7 @@ function App() {
             <div className="container">
                 <TodoList></TodoList>
                 <Clock></Clock>
+                <MyWeather weather="맑음">일기예보</MyWeather>
             </div>
         </div>
     );
